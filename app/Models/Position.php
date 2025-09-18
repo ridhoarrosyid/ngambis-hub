@@ -10,23 +10,12 @@ class Position extends Model
     use HasFactory;
 
     protected $fillable = [
-        'project_id',
         'name',
         'responsibility',
     ];
 
-    public function project()
+    public function projects()
     {
-        return $this->belongsTo(Project::class);
-    }
-
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
-
-    public function userAppliedLists()
-    {
-        return $this->hasMany(UserAppliedList::class);
+        return $this->belongsToMany(Project::class, 'project_position_list');
     }
 }

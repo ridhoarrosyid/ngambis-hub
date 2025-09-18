@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_applied_lists', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_position_id')->constrained('project_position_list')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
-            $table->foreignId('position_id')->constrained('positions')->onDelete('cascade');
             $table->string('status')->default('applied');
             $table->timestamps();
         });

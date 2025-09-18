@@ -9,6 +9,7 @@ Route::get('/', function () {
     return Inertia::render('Main/Page');
 })->name('main-page');
 
+
 Route::middleware('auth')->group(
     function () {
         Route::get('/projects', [ProjectContorller::class, 'index']);

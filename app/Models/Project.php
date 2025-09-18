@@ -16,7 +16,7 @@ class Project extends Model
         'name',
         'description',
         'image',
-        'status'
+        'status',
     ];
 
     protected $casts = [
@@ -31,11 +31,6 @@ class Project extends Model
     public function positions()
     {
         return $this->hasMany(Position::class);
-    }
-
-    public function userAppliedLists()
-    {
-        return $this->hasMany(UserAppliedList::class);
     }
 
     public function category()

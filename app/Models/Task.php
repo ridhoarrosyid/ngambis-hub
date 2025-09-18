@@ -10,12 +10,12 @@ class Task extends Model
     use HasFactory;
 
     protected $fillable = [
-        'position_id',
+        'project_position_id',
         'description',
     ];
 
-    public function position()
+    public function projectPosition()
     {
-        return $this->belongsTo(Position::class);
+        return $this->belongsTo(ProjectPositionList::class, 'project_position_id');
     }
 }

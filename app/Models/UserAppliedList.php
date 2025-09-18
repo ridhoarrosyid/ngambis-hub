@@ -11,28 +11,22 @@ class UserAppliedList extends Model
     use HasFactory;
 
     protected $fillable = [
+        'project_position_id',
         'user_id',
-        'project_id',
-        'position_id',
         'status',
     ];
 
     protected $casts = [
-        'status' => AppliedStatus::class
+        'status' => AppliedStatus::class,
     ];
+
+    public function projectPosition()
+    {
+        return $this->belongsTo(ProjectPositionList::class, 'project_position_id');
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function project()
-    {
-        return $this->belongsTo(Project::class);
-    }
-
-    public function position()
-    {
-        return $this->belongsTo(Position::class);
     }
 }
