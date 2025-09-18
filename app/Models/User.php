@@ -19,8 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'city',
         'email',
         'password',
+        'image',
+        'phone',
+        'is_admin'
     ];
 
     /**
@@ -44,5 +48,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function userAppliedLists()
+    {
+        return $this->hasMany(UserAppliedList::class);
     }
 }
