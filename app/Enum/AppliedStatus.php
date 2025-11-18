@@ -5,7 +5,8 @@ namespace App\Enum;
 enum AppliedStatus: string
 {
     case APPLIED = 'applied';
-    case APPROVE = 'approve';
+    case APPROVE = 'accepted';
+    case REJECTED = 'rejected';
 
     public static function options(): array
     {

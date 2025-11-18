@@ -16,12 +16,10 @@ class Project extends Model
         'name',
         'description',
         'image',
-        'status',
+
     ];
 
-    protected $casts = [
-        'status' => ProjectStatus::class
-    ];
+
 
     public function user()
     {
