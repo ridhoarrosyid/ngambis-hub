@@ -3,6 +3,7 @@ import TestimonialCard from '@/components/testimonialCard';
 import { Button } from '@/components/ui/button';
 import { dummyTestimonials } from '@/dummyData/homeData';
 import AppLayout from '@/layouts/AppLayout';
+import { createProjects } from '@/routes';
 import { ProjectsResponse } from '@/types';
 import { Link } from '@inertiajs/react'; // Import Link
 import { Briefcase, Zap } from 'lucide-react';
@@ -25,11 +26,11 @@ export default function Home({ projects }: { projects: ProjectsResponse }) {
 
                     {/* Button CTA */}
                     <div className="flex justify-center space-x-4">
-                        <Button size="lg" className="text-lg">
-                            Mulai Buat Project 🚀
+                        <Button asChild size="lg" className="text-lg">
+                            <Link href={createProjects()}>Mulai Buat Project 🚀</Link>
                         </Button>
                         <Button size="lg" variant="outline" className="text-lg">
-                            Lihat Project Terbaru
+                            <Link href="#projects">Lihat Project Terbaru</Link>
                         </Button>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ export default function Home({ projects }: { projects: ProjectsResponse }) {
                     <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">10 Proyek Paling Populer Saat Ini</h2>
 
                     {/* Grid Project Card */}
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <div id="projects" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {projects.data.length > 0 ? (
                             projects.data.map((project) => <ProjectCard key={project.id} project={project} />)
                         ) : (
