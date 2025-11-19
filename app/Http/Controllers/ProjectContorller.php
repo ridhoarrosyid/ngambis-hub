@@ -43,6 +43,8 @@ class ProjectContorller extends Controller
     {
         $categories = Category::query()
             ->select(['id', 'name'])
+            ->orderByRaw("CASE WHEN name = 'kategori lainnya' THEN 1 ELSE 0 END")
+            ->orderBy('name') // Opsional: Urutkan sisa kategori lainnya sesuai abjad
             ->get();
         return Inertia::render('User/CreateProject', ['categories' => $categories]);
     }
