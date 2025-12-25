@@ -54,6 +54,10 @@
         gtag('config', 'G-Q0X0XEVSL7');
     </script>
 
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5292926601578002"
+        crossorigin="anonymous"></script>
+
     @viteReactRefresh
     @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
     @inertiaHead
