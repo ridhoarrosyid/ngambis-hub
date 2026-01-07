@@ -13,7 +13,7 @@ use Inertia\Inertia;
 
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'throttle:60,1'])->group(function () {
     Route::get('/applied-positions', [ApplyController::class, 'index'])->name('applied-positions');
     Route::post('/apply-position/{id}', [ApplyController::class, 'store'])->name('apply-positions');
     Route::delete('/applied-position/{id}', [ApplyController::class, 'destroy'])->name('destroy-apply');
@@ -53,7 +53,7 @@ Route::get('/projects/{id}', [ProjectContorller::class, 'show'])->name('projects
 
 
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'throttle:60,1'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
